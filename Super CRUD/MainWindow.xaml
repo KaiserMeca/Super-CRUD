@@ -102,10 +102,10 @@
         <!--#region BUTTON.LAT.DISEÑO-->
         <SolidColorBrush x:Key="Button.Static.Background1" Color="#FFDDDDDD"/>
         <SolidColorBrush x:Key="Button.Static.Border1" Color="#FF707070"/>
-        <SolidColorBrush x:Key="Button.MouseOver.Background2" Color="#FFBEE6FD"/>
-        <SolidColorBrush x:Key="Button.MouseOver.Border2" Color="#03A9F4"/>
-        <SolidColorBrush x:Key="Button.Pressed.Background2" Color="#FFC4E5F6"/>
-        <SolidColorBrush x:Key="Button.Pressed.Border2" Color="#0288D1"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Background2" Color="Red"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Border2" Color="red"/>
+        <SolidColorBrush x:Key="Button.Pressed.Background2" Color="Red"/>
+        <SolidColorBrush x:Key="Button.Pressed.Border2" Color="Transparent"/>
         <SolidColorBrush x:Key="Button.Disabled.Background2" Color="#FFF4F4F4"/>
         <SolidColorBrush x:Key="Button.Disabled.Border2" Color="#FFADB2B5"/>
         <SolidColorBrush x:Key="Button.Disabled.Foreground2" Color="#FF838383"/>
@@ -125,11 +125,8 @@
                             <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
                         </Border>
                         <ControlTemplate.Triggers>
-                            <Trigger Property="IsDefaulted" Value="true">
-                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
-                            </Trigger>
                             <Trigger Property="IsMouseOver" Value="true">
-                                <Setter Property="Background" TargetName="border" Value="Transparent"/>
+                                <Setter Property="Background" TargetName="border" Value="#29B6F6"/>
                                 <Setter Property="BorderBrush" TargetName="border" Value="Transparent"/>
                             </Trigger>
                             <Trigger Property="IsPressed" Value="true">
@@ -149,6 +146,7 @@
         <!--#endregion-->
     </Window.Resources>
     <!--#endregion-->
+    <!--#region PROYECTO-->
     <Border CornerRadius="30" Background="GhostWhite">
         <Grid Name="Principal" Background="Transparent">
             <!--#region HEADER-->
@@ -200,13 +198,13 @@
                     <!--#endregion-->
                     <!--#region MINIMIZAR-->
                     <Button Template="{DynamicResource ButtonDiseñoHeader}" x:Name="BtnMinimizar" Grid.Column="2" HorizontalAlignment="Right" 
-                            Style="{StaticResource ButtonBase}" Height="25" Width="27" VerticalAlignment="top" Margin="0,7,37,0">
+                            Style="{StaticResource ButtonBase}" Height="25" Width="27" VerticalAlignment="top" Margin="0,7,37,0" Click="Minimizar">
                         <Image Source="/Scs/Img/Minimizar.Ico" Stretch="Fill" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     </Button>
                     <!--#endregion-->
                     <!--#region CERRAR-->
                     <Button Template="{DynamicResource ButtonDiseñoHeader}" x:Name="BtnCerrar" Grid.Column="2" HorizontalAlignment="Right" 
-                            Style="{StaticResource ButtonBase}" Height="20" Width="20" VerticalAlignment="top" Margin="0,9,10,0">
+                            Style="{StaticResource ButtonBase}" Height="20" Width="20" VerticalAlignment="top" Margin="0,9,10,0" Click="CerrarApp">
                         <Image Source="/Scs/Img/X.Ico" Stretch="None" VerticalAlignment="Center" HorizontalAlignment="Center"/>
                     </Button>
                     <!--#endregion-->
@@ -214,7 +212,7 @@
             </Grid>
             <!--#endregion-->
             <!--#region MENU.LATERAL-->
-            <Grid x:Name="GridMenu" Background="Transparent" Width="200" Margin="0,35,0,0" HorizontalAlignment="Left">
+            <Grid x:Name="GridMenu" Background="Transparent" Width="75" Margin="0,35,0,0" HorizontalAlignment="Left">
                 <Border Background="#0097A7" CornerRadius="0,10,10,10"/>
                 <StackPanel Background="Transparent" VerticalAlignment="Top">
                     <!--#region BUTTON MENU-->
@@ -315,8 +313,6 @@
                             </Button>
                         </ListViewItem>
                         <!--#endregion-->
-
-
                     </ListView>
                     <!--#endregion-->
                 </StackPanel>
@@ -324,5 +320,5 @@
             <!--#endregion-->
         </Grid>
     </Border>
-
+    <!--#endregion-->
 </Window>

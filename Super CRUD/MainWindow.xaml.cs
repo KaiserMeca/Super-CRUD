@@ -24,10 +24,10 @@ namespace Super_CRUD
         {
             InitializeComponent();
         }
-
+        #region Botones Principales
         private void ToggleButton_Mostrar(object sender, RoutedEventArgs e)
         {
-            GridContenidoMenu.Opacity = 0.8;
+            GridContenidoMenu.Opacity = 0.9;
         }
 
         private void ToggleButton_Ocultar(object sender, RoutedEventArgs e)
@@ -39,5 +39,16 @@ namespace Super_CRUD
         {
             BtnMostrarMenu.IsChecked = false; 
         }
+
+        private void Minimizar(object sender, RoutedEventArgs e)
+        {
+            this.WindowState = WindowState.Minimized;
+        }
+
+        private void CerrarApp(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+        #endregion
     }
 }
