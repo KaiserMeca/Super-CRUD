@@ -24,5 +24,20 @@ namespace Super_CRUD
         {
             InitializeComponent();
         }
+
+        private void ToggleButton_Mostrar(object sender, RoutedEventArgs e)
+        {
+            GridContenidoMenu.Opacity = 0.8;
+        }
+
+        private void ToggleButton_Ocultar(object sender, RoutedEventArgs e)
+        {
+            GridContenidoMenu.Opacity = 1;
+        }
+
+        private void PreviewMouseLefButtonDown_GridContenidoMenu(object sender, MouseButtonEventArgs e)
+        {
+            BtnMostrarMenu.IsChecked = false; 
+        }
     }
 }

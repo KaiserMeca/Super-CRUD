@@ -109,5 +109,15 @@
   <ItemGroup>
     <Resource Include="Scs\Img\Menu.Ico" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Scs\Img\fractal.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Scs\Img\Fuego.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Scs\Img\helena.jpg" />
+    <Resource Include="Scs\Img\Helix.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

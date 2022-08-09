@@ -13,5 +13,3 @@
         </Style>
     </Application.Resources>
 </Application>
-<!--<Button x:Name="btnCuenta" Background="Transparent" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left"
-                            FontSize="18" FontWeight="Bold" Cursor="Hand">Mi cuenta</Button>-->
