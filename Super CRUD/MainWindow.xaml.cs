@@ -50,5 +50,10 @@ namespace Super_CRUD
             Close();
         }
         #endregion
+
+        private void Usuarios_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

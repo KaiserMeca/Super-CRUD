@@ -18,7 +18,7 @@
         <SolidColorBrush x:Key="Button.Disabled.Border" Color="#FFADB2B5"/>
         <SolidColorBrush x:Key="Button.Disabled.Foreground" Color="#FF838383"/>
         <ControlTemplate x:Key="ButtonDiseñoHeader" TargetType="{x:Type ButtonBase}">
-            <Border x:Name="border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="true">
+            <Border CornerRadius="7" x:Name="border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="true">
                 <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
             </Border>
             <ControlTemplate.Triggers>
@@ -121,7 +121,7 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type Button}">
-                        <Border x:Name="border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="true">
+                        <Border CornerRadius="7" x:Name="border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="true">
                             <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
                         </Border>
                         <ControlTemplate.Triggers>
@@ -150,12 +150,14 @@
     <Border CornerRadius="30" Background="GhostWhite">
         <Grid Name="Principal" Background="Transparent">
             <!--#region HEADER-->
+            <!--#region CENTRAL-->
             <Grid x:Name="GridContenidoMenu" Background="Transparent" VerticalAlignment="Bottom" HorizontalAlignment="Right"
                   Height="565" Width="940">
                 <Border CornerRadius="0,0,10,0" Background="Black" PreviewMouseLeftButtonDown="PreviewMouseLefButtonDown_GridContenidoMenu">
                     <TextBlock Foreground="#0097A7" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="50" FontWeight="Bold"><Run Text="Program"/></TextBlock>
                 </Border>
             </Grid>
+            <!--#endregion-->
             <Grid x:Name="Header" Height="35" VerticalAlignment="top" Background="Transparent">
                 <Border CornerRadius="15,15,0,0" Background="Gray"/>
                 <Grid>
@@ -300,7 +302,7 @@
                         <!--#region BUTTON.USUARIOS-->
                         <ListViewItem Height="70" >
                             <Button Style="{DynamicResource ButtonMenuLateral}" x:Name="BtnUsuarios" Height="70" Width="200" 
-                                    HorizontalAlignment="Left" Background="Transparent" BorderBrush="Transparent" Cursor="Hand">
+                                    HorizontalAlignment="Left" Background="Transparent" BorderBrush="Transparent" Cursor="Hand" Click="Usuarios_Click">
                                 <Grid Width="200">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="60"/>
