@@ -1,17 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Super_CRUD.View;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Super_CRUD
 {
@@ -27,7 +16,7 @@ namespace Super_CRUD
         #region Botones Principales
         private void ToggleButton_Mostrar(object sender, RoutedEventArgs e)
         {
-            GridContenidoMenu.Opacity = 0.9;
+            GridContenidoMenu.Opacity = 0.7;
         }
 
         private void ToggleButton_Ocultar(object sender, RoutedEventArgs e)
@@ -53,7 +42,7 @@ namespace Super_CRUD
 
         private void Usuarios_Click(object sender, RoutedEventArgs e)
         {
-
+            DataContext = new Usuarios();
         }
     }
 }

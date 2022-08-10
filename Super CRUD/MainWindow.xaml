@@ -3,7 +3,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Super_CRUD"
+        xmlns:local="clr-namespace:Super_CRUD" 
+        xmlns:viewmodels="clr-namespace:Super_CRUD.View"
         mc:Ignorable="d"
         Title="MainWindow" Height="600" Width="1000" WindowStartupLocation="CenterScreen" WindowStyle="none" AllowsTransparency="True" 
         Background="Transparent">
@@ -144,6 +145,11 @@
             </Setter>
         </Style>
         <!--#endregion-->
+        <!--#region DATA TEMPLATE (plantilla de datos)-->
+        <DataTemplate x:Name="Usuarios" DataType="{x:Type viewmodels:Usuarios}">
+            <viewmodels:Usuarios DataContext="{Binding}"></viewmodels:Usuarios>
+        </DataTemplate>
+        <!--#endregion-->
     </Window.Resources>
     <!--#endregion-->
     <!--#region PROYECTO-->
@@ -156,6 +162,7 @@
                 <Border CornerRadius="0,0,10,0" Background="Black" PreviewMouseLeftButtonDown="PreviewMouseLefButtonDown_GridContenidoMenu">
                     <TextBlock Foreground="#0097A7" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="50" FontWeight="Bold"><Run Text="Program"/></TextBlock>
                 </Border>
+                <ContentControl Content="{Binding}"></ContentControl>
             </Grid>
             <!--#endregion-->
             <Grid x:Name="Header" Height="35" VerticalAlignment="top" Background="Transparent">
