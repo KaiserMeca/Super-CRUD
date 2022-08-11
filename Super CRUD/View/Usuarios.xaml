@@ -243,7 +243,7 @@
             <!--#endregion-->
             <!--#region BOTON CREAR USUARIO-->
             <Button Grid.Column="4" Grid.Row="2" Name="BtnCrearUsuario" Background="#607D8B" BorderBrush="#607D8B" Cursor="Hand"
-                    Width="150" Style="{DynamicResource ButtonBuscarUsuarios}">
+                    Width="150" Style="{DynamicResource ButtonBuscarUsuarios}" Click="CrearUsuario">
                 <TextBlock Text="Crear usuario" FontSize="18" FontWeight="Bold" Foreground="FloralWhite"></TextBlock>
             </Button>
             <!--#endregion-->

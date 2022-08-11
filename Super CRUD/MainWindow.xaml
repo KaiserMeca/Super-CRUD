@@ -227,9 +227,13 @@
                     <!--#region BUTTON MENU-->
                     <Grid Background="Transparent" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,10,10,0">
                         <ToggleButton Style="{DynamicResource ToggleButtonStyleMenu}" x:Name="BtnMostrarMenu" Height="30" Width="30"
-                                      BorderBrush="Transparent" Checked="ToggleButton_Mostrar" Unchecked="ToggleButton_Ocultar" Cursor="Hand">
-                            <ToggleButton.Background>
-                                <ImageBrush ImageSource="/Scs/Img/Menu.Ico"/>
+                                      BorderBrush="Transparent" Checked="ToggleButton_Mostrar" Unchecked="ToggleButton_Ocultar" 
+                                      Cursor="Hand">
+                            <ToggleButton.RenderTransform>
+                                <RotateTransform x:Name="Eje" ></RotateTransform>
+                            </ToggleButton.RenderTransform>
+                        <ToggleButton.Background>
+                                <ImageBrush ImageSource="/Scs/Img/FlechaDerecha.Ico"></ImageBrush>
                             </ToggleButton.Background>
                             <ToggleButton.Triggers>
                                 <!--#region MOSTRAR-->
@@ -241,6 +245,18 @@
                                         </Storyboard>
                                     </BeginStoryboard>
                                 </EventTrigger>
+                                <EventTrigger RoutedEvent="ToggleButton.Checked">
+                                        <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation  Storyboard.TargetName="Eje" Storyboard.TargetProperty="Angle" 
+                                                    BeginTime="0:0:0" From="0" To="180" Duration="0:0:0:0.3"></DoubleAnimation>
+                                            <DoubleAnimation  Storyboard.TargetName="Eje" Storyboard.TargetProperty="CenterX" 
+                                                    BeginTime="0:0:0" From="0" To="14" Duration="0:0:0:0.3"></DoubleAnimation>
+                                            <DoubleAnimation  Storyboard.TargetName="Eje" Storyboard.TargetProperty="CenterY" 
+                                                    BeginTime="0:0:0" From="0" To="14" Duration="0:0:0:0.3"></DoubleAnimation>
+                                        </Storyboard>
+                                        </BeginStoryboard>
+                                </EventTrigger>
                                 <!--#endregion-->
                                 <!--#region OCULTAR-->
                                 <EventTrigger RoutedEvent="ToggleButton.Unchecked">
@@ -248,6 +264,18 @@
                                         <Storyboard x:Name="OcultarMenu">
                                             <DoubleAnimation Storyboard.TargetName="GridMenu" Storyboard.TargetProperty="Width" 
                                                              BeginTime="0:0:0" From="200" To="75" Duration="0:0:0:0.3"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger>
+                                <EventTrigger RoutedEvent="ToggleButton.Unchecked">
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation  Storyboard.TargetName="Eje" Storyboard.TargetProperty="Angle" 
+                                                    BeginTime="0:0:0" From="180" To="0" Duration="0:0:0:0.3"></DoubleAnimation>
+                                            <!--<DoubleAnimation  Storyboard.TargetName="Eje" Storyboard.TargetProperty="CenterX" 
+                                                    BeginTime="0:0:0" From="11" To="2" Duration="0:0:0:0.3"></DoubleAnimation>
+                                            <DoubleAnimation  Storyboard.TargetName="Eje" Storyboard.TargetProperty="CenterY" 
+                                                    BeginTime="0:0:0" From="11" To="7" Duration="0:0:0:0.3"></DoubleAnimation>-->
                                         </Storyboard>
                                     </BeginStoryboard>
                                 </EventTrigger>

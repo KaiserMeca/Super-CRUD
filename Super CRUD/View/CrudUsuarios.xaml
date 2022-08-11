@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Super_CRUD.View"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="565" d:DesignWidth="925"
       Title="CrudUsuarios">
     <Page.Resources>
         <!--#region BTN REGRESAR DISEÑO-->
@@ -96,6 +96,8 @@
                 <RowDefinition Height="30"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="30"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="10"/>
                 <RowDefinition Height="20"/>
             </Grid.RowDefinitions>
             <!--#endregion-->
@@ -106,7 +108,7 @@
             <!--#region BOTONES-->
             <!--#region BOTON REGRESAR-->
             <Button Style="{DynamicResource ButtonStyleRegresar}" Foreground="White" FontWeight="Bold" FontSize="18" x:Name="BtnRegresar" 
-                    Content="Regresar" Grid.Column="1" Grid.Row="2" Width="110" Cursor="Hand" Background="#0277BD"/>
+                    Content="Regresar" Grid.Column="1" Grid.Row="2" Width="110" Cursor="Hand" Background="#0277BD" Click="BtnRegresar_Click"/>
 
             <!--#endregion-->
             <!--#endregion-->
@@ -127,9 +129,8 @@
             <ComboBox Name="TextBoxCargo" Grid.Row="16" Grid.Column="2"/>
             <Image Grid.Row="4" Grid.Column="4" Grid.RowSpan="11" Grid.ColumnSpan="2" x:Name="ImagenPerfil" 
                    Source="/Scs/Img/UsuarioPerfil.JPG"></Image>
-
-
-
+            <Button Grid.Column="4" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center" Content="Cambiar imagen"
+                     Style="{DynamicResource ButtonStyleRegresar}" Background="#0277BD" Foreground="White" FontSize="17" Grid.Row="16"></Button>
 
             <!--#endregion-->
         </Grid>

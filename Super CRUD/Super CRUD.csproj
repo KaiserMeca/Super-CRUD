@@ -136,5 +136,8 @@
   <ItemGroup>
     <Resource Include="Scs\Img\UsuarioPerfil.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Scs\Img\FlechaDerecha.Ico" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

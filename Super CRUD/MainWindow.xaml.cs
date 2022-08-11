@@ -12,6 +12,8 @@ namespace Super_CRUD
         public MainWindow()
         {
             InitializeComponent();
+            var y = Eje.CenterX;
+            var Z = Eje.CenterY;
         }
         #region Botones Principales
         private void ToggleButton_Mostrar(object sender, RoutedEventArgs e)
