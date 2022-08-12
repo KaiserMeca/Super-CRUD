@@ -65,6 +65,55 @@
             </Setter>
         </Style>
         <!--#endregion-->
+        <!--#region TEXT BOX STYLE-->
+        <SolidColorBrush x:Key="TextBox.Static.Border" Color="#BDBDBD"/>
+        <SolidColorBrush x:Key="TextBox.MouseOver.Border" Color="#FF7EB4EA"/>
+        <SolidColorBrush x:Key="TextBox.Focus.Border" Color="#B388FF"/>
+        <Style x:Key="TextBoxStyle" TargetType="{x:Type TextBox}">
+            <Setter Property="Background" Value="{StaticResource TextBox.Static.Border}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource TextBox.Static.Border}"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="KeyboardNavigation.TabNavigation" Value="None"/>
+            <Setter Property="HorizontalContentAlignment" Value="Left"/>
+            <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+            <Setter Property="AllowDrop" Value="true"/>
+            <Setter Property="ScrollViewer.PanningMode" Value="VerticalFirst"/>
+            <Setter Property="Stylus.IsFlicksEnabled" Value="False"/>
+            
+            <Setter Property="FontSize" Value="17"></Setter>
+            <Setter Property="FontWeight" Value="SemiBold"></Setter>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TextBox}">
+                        <Border CornerRadius="7" x:Name="border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="True">
+                            <ScrollViewer x:Name="PART_ContentHost" Focusable="false" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Opacity" TargetName="border" Value="0.56"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource TextBox.MouseOver.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsKeyboardFocused" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource TextBox.Focus.Border}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <!--<Style.Triggers>
+                <MultiTrigger>
+                    <MultiTrigger.Conditions>
+                        <Condition Property="IsInactiveSelectionHighlightEnabled" Value="true"/>
+                        <Condition Property="IsSelectionActive" Value="false"/>
+                    </MultiTrigger.Conditions>
+                    <Setter Property="SelectionBrush" Value="{DynamicResource {x:Static SystemColors.InactiveSelectionHighlightBrushKey}}"/>
+                </MultiTrigger>
+            </Style.Triggers>-->
+        </Style>
+        <!--#endregion-->
     </Page.Resources>
     <Border CornerRadius="10" Background="#29B6F6">
         <Grid>
@@ -109,29 +158,27 @@
             <!--#region BOTON REGRESAR-->
             <Button Style="{DynamicResource ButtonStyleRegresar}" Foreground="White" FontWeight="Bold" FontSize="18" x:Name="BtnRegresar" 
                     Content="Regresar" Grid.Column="1" Grid.Row="2" Width="110" Cursor="Hand" Background="#0277BD" Click="BtnRegresar_Click"/>
-
             <!--#endregion-->
             <!--#endregion-->
             <!--#region CONTENIDO-->
-            <TextBlock Text="Nombre:" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-            <TextBox Name="TextBoxNombre" Grid.Row="4" Grid.Column="2"/>
-            <TextBlock Text="Apellido:" Grid.Row="6" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-            <TextBox Name="TextBoxApellido" Grid.Row="6" Grid.Column="2"/>
-            <TextBlock Text="Dni:" Grid.Row="8" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-            <TextBox Name="TextBoxDni" Grid.Row="8" Grid.Column="2"/>
-            <TextBlock Text="Telefono:" Grid.Row="10" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-            <TextBox Name="TextBoxTelefono" Grid.Row="10" Grid.Column="2"/>
-            <TextBlock Text="Mail:" Grid.Row="12" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-            <TextBox Name="TextBoxMail" Grid.Row="12" Grid.Column="2"/>
-            <TextBlock Text="Fecha de nacimiento:" Grid.Row="14" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-            <TextBox Name="TextBoxFechaDeNacimiento" Grid.Row="14" Grid.Column="2"/>
-            <TextBlock Text="Cargo/Rol:" Grid.Row="16" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+            <TextBlock Text="Nombre:" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="18" FontWeight="Bold"/>
+            <TextBox Style="{DynamicResource TextBoxStyle}" Name="TextBoxNombre" Grid.Row="4" Grid.Column="2"/>
+            <TextBlock Text="Apellido:" Grid.Row="6" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="18" FontWeight="Bold"/>
+            <TextBox Style="{DynamicResource TextBoxStyle}" Name="TextBoxApellido" Grid.Row="6" Grid.Column="2"/>
+            <TextBlock Text="Dni:" Grid.Row="8" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="18" FontWeight="Bold"/>
+            <TextBox Style="{DynamicResource TextBoxStyle}" Name="TextBoxDni" Grid.Row="8" Grid.Column="2"/>
+            <TextBlock Text="Telefono:" Grid.Row="10" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="18" FontWeight="Bold"/>
+            <TextBox Style="{DynamicResource TextBoxStyle}" Name="TextBoxTelefono" Grid.Row="10" Grid.Column="2"/>
+            <TextBlock Text="Mail:" Grid.Row="12" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="18" FontWeight="Bold"/>
+            <TextBox Style="{DynamicResource TextBoxStyle}" Name="TextBoxMail" Grid.Row="12" Grid.Column="2"/>
+            <TextBlock Text="Fecha de nacimiento:" Grid.Row="14" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="18" FontWeight="Bold"/>
+            <TextBox Style="{DynamicResource TextBoxStyle}" Name="TextBoxFechaDeNacimiento" Grid.Row="14" Grid.Column="2"/>
+            <TextBlock Text="Cargo/Rol:" Grid.Row="16" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="18" FontWeight="Bold"/>
             <ComboBox Name="TextBoxCargo" Grid.Row="16" Grid.Column="2"/>
             <Image Grid.Row="4" Grid.Column="4" Grid.RowSpan="11" Grid.ColumnSpan="2" x:Name="ImagenPerfil" 
                    Source="/Scs/Img/UsuarioPerfil.JPG"></Image>
             <Button Grid.Column="4" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center" Content="Cambiar imagen"
                      Style="{DynamicResource ButtonStyleRegresar}" Background="#0277BD" Foreground="White" FontSize="17" Grid.Row="16"></Button>
-
             <!--#endregion-->
         </Grid>
     </Border>

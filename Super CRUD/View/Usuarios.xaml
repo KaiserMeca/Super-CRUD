@@ -198,6 +198,19 @@
             <Setter Property="Height" Value="30"></Setter>
             <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
         </Style>
+        <Style TargetType="{x:Type DataGridCell}">
+            <Style.Triggers>
+                <Trigger Property="IsSelected" Value="True">
+                    <Setter Property="Background" Value="NavajoWhite"></Setter>
+                    <Setter Property="BorderBrush" Value="Transparent"></Setter>
+                </Trigger>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="NavajoWhite"></Setter>
+                    <Setter Property="BorderBrush" Value="Transparent"></Setter>
+                </Trigger>
+            </Style.Triggers>
+               
+        </Style>
         <!--#endregion-->
     </UserControl.Resources>
     <!--#region CONTENIDO-->
@@ -257,17 +270,23 @@
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
                                 <DockPanel>
-                                    <!--Creacion de botones para el crud-->
+                                    <Button x:Name="BtnConsultar" Foreground="White" FontWeight="SemiBold" Content="Consutar" BorderBrush="Transparent" Background="#039BE5"
+                                            Width="80" Style="{DynamicResource ButtonBuscarUsuarios}"></Button>
+                                    <Button x:Name="BtnModificar" Foreground="White" FontWeight="SemiBold" Content="Modificar" BorderBrush="Transparent" Background="#039BE5"
+                                            Width="80" Style="{DynamicResource ButtonBuscarUsuarios}"></Button>
+                                    <Button x:Name="BtnEliminar" Foreground="White" FontWeight="SemiBold" HorizontalAlignment="Left"
+                                            Content="Eliminar" BorderBrush="Transparent" Background="#039BE5"
+                                            Width="80" Style="{DynamicResource ButtonBuscarUsuarios}"></Button>
                                 </DockPanel>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
-                    <DataGridTextColumn Header="Id" Width="50"></DataGridTextColumn>
-                    <DataGridTextColumn Header="Nombre" Width="100"></DataGridTextColumn>
-                    <DataGridTextColumn Header="Apellido" Width="100"></DataGridTextColumn>
-                    <DataGridTextColumn Header="Telefono" Width="100"></DataGridTextColumn>
-                    <DataGridTextColumn Header="Email" Width="*"></DataGridTextColumn>
-                    <DataGridTextColumn Header="Cargo" Width="*"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Id" Width="50" Binding="{Binding IdUsuarios}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Nombre" Width="100" Binding="{Binding Nombres}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Apellido" Width="100" Binding="{Binding Apellido}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Telefono" Width="100" Binding="{Binding Telefono}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Email" Width="*" Binding="{Binding Email}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Cargo" Width="*" Binding="{Binding NombreDelCargo}"></DataGridTextColumn>
                 </DataGrid.Columns>
             </DataGrid>
             <!--#endregion-->
